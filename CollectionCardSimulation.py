@@ -1,5 +1,6 @@
 import random
 EMPTY_PLACES = 192
+NUM_ITERATIONS = 10000
 def isBookComplete(book):
     isComplete = True
     for item in book:
@@ -23,7 +24,7 @@ tmpNumber = fillInWholeBook()
 minNumber = tmpNumber
 maxNumber = tmpNumber
 averageNumber = tmpNumber
-for i in range(9999):
+for i in range(NUM_ITERATIONS-1):
     tmpNumber = fillInWholeBook()
     if tmpNumber < minNumber:
         minNumber = tmpNumber
@@ -33,7 +34,7 @@ for i in range(9999):
 
     averageNumber = averageNumber + tmpNumber
 
-averageNumber = averageNumber / 10000
+averageNumber = averageNumber / NUM_ITERATIONS
 
 print "minNumber ", minNumber
 print "maxNumber", maxNumber
