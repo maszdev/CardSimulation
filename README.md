@@ -8,6 +8,10 @@ The question is - how many stickers you need to buy to complete whole album with
 ## Simulation for one person 
 CollectionCardSimulation.py script makes simulation: one iteration is related with experiment - draw random cards untill all places in album are fulfilled. This iteration is repeated 10000 times (EMPTY_PLACES = 192 and NUM_ITERATIONS = 10000 are parameters of smulation which can be changed in script). 
 Minimum value of cards, maximum and average are printed. 
+There is also implementatin in R: cardSimulation.R - as na output it created histogram.
+###Power of math
+For this problem  I found math solution: 
+Expected number of cards can be estimated as n*(ln(n)+gamma+1/(2*n)) , where n is number of empty places to fill in and gamma is an Euler constant = 0.5772...
 
 ## Simulation for two persons colaborating in 'cooperation mode'
 Now lets take two persons: Zuza and her friend Julka. They will exchange cards with 'cooperation rule': if Zuza has not needed card which is needed by Julka AND Julka has not needed card which is needed by Zuza    -> they will exchange it to each other. 
