@@ -85,10 +85,13 @@ for i in range(ITERATIONS):
     if not Zuza.completed:
       Zuza.drawCard(random.randint(1,EMPTY_PLACES))
     if not Julka.completed:
-      if random.random() < JULKA_ZUZKA_RATIO: #Julka buys a card in 100*JULKA_ZUZKA_RATIO % of cases
+      if Zuza.completed:
+        goJulka = True #skip randomization related with frequency 
+      elif random.random() < JULKA_ZUZKA_RATIO: #Julka buys a card in 100*JULKA_ZUZKA_RATIO % of cases
         goJulka = True                        #but not more often then Zuza
       else:
         goJulka = False
+
       if goJulka:
         Julka.drawCard(random.randint(1,EMPTY_PLACES))
 

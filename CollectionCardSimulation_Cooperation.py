@@ -13,7 +13,7 @@ EMPTY_PLACES = 192
 # 0.5 means - number of cards bought by Julka is equal to 50% of number of cards bought by Zuza (so Zuza buys cards two times often then Julka). 
 # 0.25 - ... Zuza buys cards four times often then Julka, and so on.
 # If number bigger than 1 is set, 1 will be used in simulation. Julka can't buy cards ofthen than Zuza in this simulation. 
-JULKA_ZUZKA_RATIO = 0.5
+JULKA_ZUZKA_RATIO = 1
 
 
 
@@ -86,10 +86,13 @@ for i in range(ITERATIONS):
     if not Zuza.completed:
       Zuza.drawCard(random.randint(1,EMPTY_PLACES))
     if not Julka.completed:
-      if random.random() < JULKA_ZUZKA_RATIO: #Julka buys a card in 100*JULKA_ZUZKA_RATIO % of cases
+      if Zuza.completed:
+        goJulka = True #skip randomization related with frequency
+      elif random.random() < JULKA_ZUZKA_RATIO: #Julka buys a card in 100*JULKA_ZUZKA_RATIO % of cases
         goJulka = True                        #but not more often then Zuza
       else:
         goJulka = False
+
       if goJulka:
         Julka.drawCard(random.randint(1,EMPTY_PLACES))
     # 2) CHECK CONDITIONS FOR CARD EXCHANGE AND (IF POSSIBLE) DO IT  
